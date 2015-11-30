@@ -1,0 +1,92 @@
+.progress {
+  display: inline-block;
+  box-sizing: border-box;
+
+  border-radius: 5px;
+
+  padding: 1rem 2rem;
+
+  border: 1px solid white;
+
+  background: rgb(27, 113, 193);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: color 0.3s ease, background 0.3s ease, padding 0.5s ease;
+
+
+  &:hover {
+    background: rgb(14, 66, 135);
+  }
+
+  &.active {
+    position: relative;
+
+    padding-left: 3.2rem;
+
+    &::before, &::after {
+      opacity: 1;
+    }
+  }
+
+  &::before, &::after {
+    content: '';
+    display: block;
+
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+  }
+
+  &::before {
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    border: 1px solid white;
+
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    width: 5px;
+    height: 1px;
+
+    background: white;
+
+    border-radius: 4px;
+
+    transform: translate(3px, -50%) rotate(0);
+
+    transform-origin: right center;
+
+    animation: progress 0.8s linear infinite;
+  }
+}
+
+@keyframes progress {
+  0% {
+    transform: translate(3px, -50%) rotate(0);
+  }
+
+  100% {
+    transform: translate(3px, -50%) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes progress {
+  0% {
+    transform: translate(3px, -50%) rotate(0);
+  }
+
+  100% {
+    transform: translate(3px, -50%) rotate(360deg);
+  }
+}

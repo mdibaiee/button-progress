@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Progress</title>
+</head>
+
+  <style>
+    body {
+      margin-top: 5rem;
+    }
+
+    html, body {
+      text-align: center;
+
+      font-family: sans-serif;
+    }
+
+    button {
+      margin-top: 2rem;
+    }
+  </style>
+
+  <link rel='stylesheet' href='style.css' />
+<body>
+  <p>Your buttons should have a <code>.active</code> class</p>
+  <p>Add an <code>.active</code> class and you're good to go</p>
+
+  <button class='progress'>Voodoo</button>
+
+  <script>
+    var button = document.querySelector('button');
+
+    var timeout = 0;
+    button.addEventListener('click', () => {
+      button.classList.add('active');
+
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        button.classList.remove('active');
+      }, 2000);
+    })
+  </script>
+</body>
+</html>
